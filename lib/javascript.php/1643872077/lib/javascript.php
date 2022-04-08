@@ -92,3 +92,14 @@ el.dispatchEvent(event)}
 M.util.help_popups={setup:function(Y){Y.one('body').delegate('click',this.open_popup,'a.helplinkpopup',this)},open_popup:function(e){e.preventDefault();var anchor=e.target.ancestor('a',!0);var args={'name':'popup','url':anchor.getAttribute('href'),'options':''};var options=['height=600','width=800','top=0','left=0','menubar=0','location=0','scrollbars','resizable','toolbar','status','directories=0','fullscreen=0','dependent']
 args.options=options.join(',');openpopup(e,args)}}
 M.core_custom_menu={init:function(Y,nodeid){var node=Y.one('#'+nodeid);if(node){Y.use('node-menunav',function(Y){node.removeClass('javascript-disabled');node.plug(Y.Plugin.NodeMenuNav)})}}};M.form=M.form||{};M.form.init_smartselect=function(){throw new Error('M.form.init_smartselect can not be used any more.')};M.util.init_skiplink=function(Y){Y.one(Y.config.doc.body).delegate('click',function(e){e.preventDefault();e.stopPropagation();var node=Y.one(this.getAttribute('href'));node.setAttribute('tabindex','-1');node.focus();return!0},'a.skip')}
+  
+  
+  
+  
+  
+  $(document).scroll(function() {
+       if($(window).scrollTop() > 50){
+
+        $("#headerline").css("background","red");
+        $("#header").hide();
+        $("#header2").show();
